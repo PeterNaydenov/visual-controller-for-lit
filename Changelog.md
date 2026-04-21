@@ -7,5 +7,6 @@
 - [x] Visual Controller API for Lit components;
 - [x] Support for SSR hydration;
 - [x] JSDoc types generation;
+- [x] Typescript support;
 - [x] Build scripts for ESM, CJS, and UMD;
 - [x] Test coverage with Vitest;
