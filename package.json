@@ -1,7 +1,7 @@
 {
   "name": "@peter.naydenov/visual-controller-for-lit",
   "description": "Tool for building micro-frontends(MFE) based on Lit components - Start multiple Lit applications on the same HTML page and control them",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "author": "Peter Naydenov",
   "type": "module",
