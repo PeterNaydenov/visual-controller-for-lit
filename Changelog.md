@@ -2,6 +2,12 @@
 
 
 
+## 1.0.2 (2026-07-23)
+- [x] Dependencies update. Ask-for-promise 3.2.0;
+- [x] Typescript v.7.0.2;
+
+
+
 ## 1.0.1 (2026-05-27)
 - [x] Dependencies update. Ask-for-promise 3.1.1;
 - [x] Lit was added as a dev dependency;
