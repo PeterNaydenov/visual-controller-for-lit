@@ -35,7 +35,7 @@
     "cover": "vitest run --coverage"
   },
   "dependencies": {
-    "ask-for-promise": "^3.1.1"
+    "ask-for-promise": "^3.2.0"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^4.1.10",
