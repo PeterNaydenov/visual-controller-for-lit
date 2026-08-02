@@ -1,88 +1,44 @@
+export type SetCallback = (markers: {
+    start: Text;
+    end: Text;
+}) => string | void;
+export type SetupUpdates = Object;
+export type VisualControllerInstance = {
+    set: SetCallback & ((fn: SetCallback, ...args: any[]) => void);
+    publish: (alias: string, component: any, data?: object, extraParams?: object) => Promise<SetupUpdates | false>;
+    destroy: (target?: string | string[]) => boolean | number;
+    has: (alias: string) => boolean;
+    getApp: (alias: string) => SetupUpdates | false;
+    isEmpty: (alias: string) => boolean | undefined;
+    list: () => string[];
+    reset: () => void;
+};
+/**
+ *  Callback that places dim markers into the DOM.
+ *  @callback SetCallback
+ *  @param {{ start: Text, end: Text }} markers
+ *  @returns {string | void}
+ */
+/**
+ *  Object passed to `setupUpdates` from inside a published component.
+ *  @typedef {Object} SetupUpdates
+ */
+/**
+ *  Controller instance returned by `VisualController`.
+ *  @typedef {Object} VisualControllerInstance
+ *  @property {SetCallback & ((fn: SetCallback, ...args: any[]) => void)} set
+ *  @property {(alias: string, component: any, data?: object, extraParams?: object) => Promise<SetupUpdates | false>} publish
+ *  @property {(target?: string | string[]) => boolean | number} destroy
+ *  @property {(alias: string) => boolean} has
+ *  @property {(alias: string) => SetupUpdates | false} getApp
+ *  @property {(alias: string) => boolean | undefined} isEmpty
+ *  @property {() => string[]} list
+ *  @property {() => void} reset
+ */
+/**
+ *  Visual Controller for Lit
+ *  @param {Object} [dependencies={}]
+ *  @returns {VisualControllerInstance}
+ */
+declare function VisualController(dependencies?: any): VisualControllerInstance;
 export default VisualController;
-/**
- * Configuration options for VisualController
- */
-export type VisualControllerOptions = {
-    /**
-     * - Object with dependencies that should be available for all components
-     */
-    dependencies?: any;
-};
-/**
- * Methods exposed for external component control
- */
-export type UpdateMethods = {
-    /**
-     * : string] - Any method registered via setupUpdates
-     */
-    methodName?: Function;
-};
-/**
- * Props passed to Lit components
- */
-export type LitComponentProps = {
-    /**
-     * - Dependencies provided during VisualController initialization
-     */
-    dependencies: any;
-    /**
-     * - Data passed as second argument to publish
-     */
-    data: any;
-    /**
-     * - Function to register external update methods
-     */
-    setupUpdates: Function;
-};
-/**
- * VisualController return object
- */
-export type VisualControllerAPI = {
-    /**
-     * - Publish a Lit app
-     */
-    publish: Function;
-    /**
-     * - Destroy a Lit app
-     */
-    destroy: Function;
-    /**
-     * - Get app update methods
-     */
-    getApp: Function;
-    /**
-     * - Check if app exists
-     */
-    has: Function;
-};
-/**
- * Configuration options for VisualController
- * @typedef {Object} VisualControllerOptions
- * @property {Object} [dependencies] - Object with dependencies that should be available for all components
- */
-/**
- * Methods exposed for external component control
- * @typedef {Object} UpdateMethods
- * @property {Function} [methodName: string] - Any method registered via setupUpdates
- */
-/**
- * Props passed to Lit components
- * @typedef {Object} LitComponentProps
- * @property {Object} dependencies - Dependencies provided during VisualController initialization
- * @property {Object} data - Data passed as second argument to publish
- * @property {Function} setupUpdates - Function to register external update methods
- */
-/**
- * VisualController return object
- * @typedef {Object} VisualControllerAPI
- * @property {Function} publish - Publish a Lit app
- * @property {Function} destroy - Destroy a Lit app
- * @property {Function} getApp - Get app update methods
- * @property {Function} has - Check if app exists
- */
-/**
- * Visual Controller for Lit
- * @param {Object} [dependencies={}] - Dependencies that should be available for all components
- * @returns {VisualControllerAPI} - Object with methods: publish, destroy, getApp, has
- */
-declare function VisualController(dependencies?: any): VisualControllerAPI;
