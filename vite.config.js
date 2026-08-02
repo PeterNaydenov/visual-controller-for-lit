@@ -1,16 +1,8 @@
 import { defineConfig } from 'vite'
-import dts from 'vite-plugin-dts'
 import { resolve } from 'path'
 
 export default defineConfig({
   publicDir: false,
-  plugins: [
-    dts({ 
-      entry: resolve(__dirname, 'src/main.js'), 
-      cleanVueFileName: true, 
-      outDir: 'dist' 
-    })
-  ],
   build: {
     lib: {
       entry: resolve(__dirname, 'src/main.js'),
