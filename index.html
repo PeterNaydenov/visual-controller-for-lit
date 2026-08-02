@@ -6,26 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Visual Controller for Lit - Demo</title>
     <style>
-      body { font-family: system-ui, sans-serif; padding: 20px; }
-      .hello { padding: 10px; background: #f0f0f0; border-radius: 4px; }
-      .hello h2 { margin: 0 0 10px; }
-      .hello button { margin-right: 5px; }
-      #controls { margin: 10px 0; }
-      #controls button { margin-right: 5px; padding: 5px 10px; }
-      #result { margin-top: 10px; padding: 10px; background: #e0f0e0; }
+      body { font-family: system-ui, sans-serif; padding: 20px; max-width: 800px; }
+      h1 { margin-top: 0; }
+      #region-header, #region-sidebar { margin: 10px 0; }
+      #controls { margin: 20px 0; padding: 10px; background: #fafafa; border-radius: 4px; }
+      #controls button { margin-right: 5px; padding: 5px 10px; margin-bottom: 5px; }
+      #status { margin-top: 20px; padding: 10px; background: #f0f0f0; border-radius: 4px; font-family: monospace; font-size: 13px; }
+      #status p { margin: 4px 0; }
     </style>
   </head>
   <body>
     <h1>Visual Controller for Lit - Demo</h1>
-    <div id="app"></div>
+
+    <main>
+      <section id="region-header"></section>
+      <section id="region-sidebar"></section>
+    </main>
+
     <div id="controls">
-      <button id="updateMsg">Update Message</button>
-      <button id="increment">Increment</button>
-      <button id="getCount">Get Count</button>
-      <button id="destroy">Destroy</button>
+      <button id="updateHeader">Update Header</button>
+      <button id="incrementHeader">Increment Header</button>
+      <button id="updateSidebar">Update Sidebar</button>
+      <button id="swap">Swap</button>
+      <button id="destroyHeader">Destroy Header</button>
+      <button id="destroySidebar">Destroy Sidebar</button>
+      <button id="resetAll">Reset</button>
     </div>
-    <div id="result">Result: <span id="resultText">-</span></div>
-    <div id="hasResult">Has app: <span id="hasText">-</span></div>
+
+    <div id="status">
+      <p>list: <span id="listText">-</span></p>
+      <p>has 'header': <span id="hasHeader">-</span></p>
+      <p>has 'sidebar': <span id="hasSidebar">-</span></p>
+      <p>isEmpty 'header': <span id="emptyHeader">-</span></p>
+      <p>isEmpty 'sidebar': <span id="emptySidebar">-</span></p>
+    </div>
 
     <script type="module" src="/demo/main.js"></script>
   </body>
