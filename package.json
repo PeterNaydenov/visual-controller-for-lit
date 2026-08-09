@@ -19,8 +19,8 @@
   },
   "exports": {
     ".": {
-      "import": "dist/visual-controller-for-lit.esm.js",
-      "require": "dist/visual-controller-for-lit.cjs"
+      "import": "./dist/visual-controller-for-lit.esm.js",
+      "require": "./dist/visual-controller-for-lit.cjs"
     }
   },
   "peerDependencies": {
