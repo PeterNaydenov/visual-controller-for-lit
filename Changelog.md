@@ -1,5 +1,12 @@
 # Release History
 
+
+
+## 2.0.2 (2026-10-24)
+- [x] Dependencies update. Ask-for-promise 3.2.1;
+
+
+
 ## 2.0.1 (2026-08-09)
 - [x] Fix: Package locations for ESM, CJS, and UMD;
 
