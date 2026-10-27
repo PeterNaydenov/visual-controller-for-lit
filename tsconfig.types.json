@@ -15,9 +15,11 @@
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
-    "ignoreDeprecations": "6.0",
     "allowJs": true,
     "checkJs": false
   },
-  "include": ["src/main.js"]
+  "include": [
+    "src/main.js",
+    "src/index.ts"
+  ]
 }
