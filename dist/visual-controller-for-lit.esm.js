@@ -1,5 +1,5 @@
 import e from "ask-for-promise";
-//#region src/dim.js
+// src/dim.js
 function t() {
 	let e = {}, t = {};
 	function n(n, ...r) {
@@ -12,7 +12,7 @@ function t() {
 		s.setStartAfter(i), s.setEndBefore(a);
 		let c = {
 			isEmpty() {
-				return !i.isConnected || !a.isConnected ? !0 : (s.setStartAfter(i), s.setEndBefore(a), s.collapsed);
+				return !i.isConnected || !a.isConnected || (s.setStartAfter(i), s.setEndBefore(a), s.collapsed);
 			},
 			getContext() {
 				return i.isConnected && a.isConnected ? s.commonAncestorContainer : null;
@@ -24,7 +24,7 @@ function t() {
 		o && (t[o] = c), e[Object.keys(e).length] = c;
 	}
 	function r(n) {
-		if (!(typeof n != "string" && !Array.isArray(n))) return typeof n == "string" && n.includes(",") && (n = n.split(",").map((e) => e.trim())), Array.isArray(n) ? n.map((n) => t[n] || e[n]) : t[n] || e[n];
+		if (typeof n == "string" || Array.isArray(n)) return typeof n == "string" && n.includes(",") && (n = n.split(",").map((e) => e.trim())), Array.isArray(n) ? n.map((n) => t[n] || e[n]) : t[n] || e[n];
 	}
 	function i() {
 		let n = /* @__PURE__ */ new Set();
@@ -44,8 +44,7 @@ function t() {
 		aliases: a
 	};
 }
-//#endregion
-//#region src/main.js
+// src/main.js
 function n(n = {}) {
 	let r = {}, i = /* @__PURE__ */ new Set(), a = {}, o = t();
 	function s(e, ...t) {
@@ -126,11 +125,8 @@ function n(n = {}) {
 			return;
 		}
 		let t = o.get(e);
-		if (!t) {
-			console.error(`Region "${e}" was not defined. Call html.set(...) first.`);
-			return;
-		}
-		return t.isEmpty();
+		if (!t) console.error(`Region "${e}" was not defined. Call html.set(...) first.`);
+		else return t.isEmpty();
 	}
 	function m() {
 		for (let e of Object.keys(r)) l(e);
@@ -149,5 +145,4 @@ function n(n = {}) {
 		reset: m
 	};
 }
-//#endregion
 export { n as default };
